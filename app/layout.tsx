@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 
 import { Header } from "@/components/header";
 import "./globals.css";
+import { Menu } from "@/components/menu";
 
 const cabinetGrotesk = localFont({
   src: [
@@ -24,7 +25,17 @@ const cabinetGrotesk = localFont({
 const chillax = localFont({
   src: [
     {
+      path: "./fonts/Chillax-Light.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
       path: "./fonts/Chillax-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Chillax-Medium.woff2",
       weight: "500",
       style: "normal",
     },
@@ -64,6 +75,7 @@ export default function RootLayout({
         <div className="absolute inset-0 bg-black/80"></div>
         <Header />
         <main className="flex relative z-10 flex-1">{children}</main>
+        <Menu />
       </body>
     </html>
   );
