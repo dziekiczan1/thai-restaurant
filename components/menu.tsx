@@ -30,7 +30,7 @@ export const Menu = () => {
             key={index}
             className={`p-4 text-base ${
               pathname === item.href ? "bg-gray-100 rounded-full" : "text-black"
-            } ${index === menuItems.length - 1 ? "text-white uppercase bg-black rounded-full text-sm px-6" : ""}`}
+            } ${index === menuItems.length - 1 ? "flex items-center text-white uppercase bg-black h-12 rounded-full text-sm px-6" : ""}`}
           >
             <a href={item.href}>{item.icon || item.name}</a>
           </li>
