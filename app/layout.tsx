@@ -69,14 +69,7 @@ export default function RootLayout({
       lang="en"
       className={`${cabinetGrotesk.variable} ${chillax.variable} ${bitterRose.variable}`}
     >
-      <body
-        className={`relative flex flex-col min-h-screen w-screen bg-cover bg-center bg-no-repeat bg-[url(/main.webp)]`}
-      >
-        <div className="absolute inset-0 bg-black/80"></div>
-        <Header />
-        <main className="flex relative z-10 flex-1">{children}</main>
-        <Menu />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
