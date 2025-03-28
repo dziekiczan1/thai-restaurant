@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
-import { Header } from "@/components/header";
 import "./globals.css";
-import { Menu } from "@/components/menu";
+import MainLayout from "@/app/(main)/layout";
 
 const cabinetGrotesk = localFont({
   src: [

@@ -6,3 +6,8 @@
   --font-grotesk: var(--font-grotesk);
   --color-primary: #face8d;
 }
+
+html,
+body {
+  @apply bg-black overflow-hidden;
+}
