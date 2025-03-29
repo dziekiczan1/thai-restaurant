@@ -1,7 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { PageConfig } from "@/config/site-config";
 
 interface MenuProps {
