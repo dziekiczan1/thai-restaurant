@@ -7,20 +7,21 @@ import { menuData } from "@/config/menu-data";
 
 export default function MainMenu() {
   const sectionRefs = useRef<Record<string, React.RefObject<HTMLDivElement>>>(
-    {},
+    menuData.reduce(
+      (acc, section) => {
+        acc[section.id] = React.createRef<HTMLDivElement>();
+        return acc;
+      },
+      {} as Record<string, React.RefObject<HTMLDivElement>>,
+    ),
   );
 
-  useEffect(() => {
-    sectionRefs.current = menuData.reduce<
-      Record<string, React.RefObject<HTMLDivElement>>
-    >((acc, section) => {
-      acc[section.id] = React.createRef<HTMLDivElement>();
-      return acc;
-    }, {});
-  }, []);
-
   const scrollToSection = (id: string) => {
-    sectionRefs.current[id]?.current?.scrollIntoView({ behavior: "smooth" });
+    const sectionRef = sectionRefs.current[id];
+
+    if (sectionRef?.current) {
+      sectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
