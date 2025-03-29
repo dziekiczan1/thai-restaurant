@@ -6,6 +6,7 @@ import { SectionInfo } from "@/components/section-info";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { siteConfig, getMenuItems } from "@/config/site-config";
 
 export default function MainLayout({
   children,
@@ -15,49 +16,10 @@ export default function MainLayout({
   const pathname = usePathname();
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const pageConfig: Record<
-    string,
-    {
-      background: string;
-      title: string;
-      description: string;
-    }
-  > = {
-    "/": {
-      background: "/main.webp",
-      title: "The pure taste of",
-      description:
-        "Savor authentic Thai flavors at Chantara, where rich curries and aromatic spices meet elegance.",
-    },
-    "/menu": {
-      background: "/menu.webp",
-      title: "Our Culinary Palette",
-      description:
-        "Explore a symphony of traditional Thai dishes, carefully crafted to delight your senses.",
-    },
-    "/about": {
-      background: "/main.webp",
-      title: "Our Culinary Journey",
-      description:
-        "Discover the story behind Chantara, where passion meets tradition in every dish we create.",
-    },
-    "/workshop": {
-      background: "/workshop-bg.webp",
-      title: "Cooking Workshops",
-      description:
-        "Learn the art of Thai cuisine with our immersive and interactive cooking classes.",
-    },
-    "/book": {
-      background: "/book-bg.webp",
-      title: "Reserve Your Experience",
-      description:
-        "Book a table and embark on a memorable culinary adventure at Chantara.",
-    },
-  };
-
   const isHomepage = pathname === "/";
-  const currentConfig = pageConfig[pathname] || pageConfig["/"];
+  const currentConfig = siteConfig[pathname] || siteConfig["/"];
   const bgImage = currentConfig.background;
+  const menuItems = getMenuItems();
 
   useEffect(() => {
     setIsTransitioning(true);
@@ -103,10 +65,11 @@ export default function MainLayout({
           />
           <Header />
           <SectionInfo
+            subtitle={currentConfig.subtitle}
             title={currentConfig.title}
             description={currentConfig.description}
           />
-          <Menu />
+          <Menu menuItems={menuItems} currentPath={pathname} />
         </motion.div>
       </AnimatePresence>
 
