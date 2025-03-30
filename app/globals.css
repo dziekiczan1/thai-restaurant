@@ -11,3 +11,11 @@ html,
 body {
   @apply bg-black overflow-hidden;
 }
+
+select options {
+  @apply py-10;
+}
+
+select option {
+  @apply bg-black/80 text-white appearance-none py-4;
+}

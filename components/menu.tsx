@@ -26,7 +26,7 @@ export const Menu = ({ menuItems, currentPath }: MenuProps) => {
           delayChildren: 0.2,
           staggerChildren: 0.1,
         }}
-        className="flex items-center p-2.5 bg-white/20 backdrop-blur-md text-white rounded-full border border-white/30 shadow-lg"
+        className="flex items-center gap-2 p-2.5 bg-white/20 backdrop-blur-md text-white rounded-full border border-white/30 shadow-lg"
       >
         {menuItems.map((item, index) => (
           <motion.li
@@ -51,8 +51,8 @@ export const Menu = ({ menuItems, currentPath }: MenuProps) => {
               transition-all 
               duration-300 
               ease-in-out
-            ${currentPath === item.href ? "bg-white/30 text-white rounded-full" : "text-white/80 hover:text-white"}
-              ${item.isSpecialButton ? "flex items-center uppercase bg-primary !text-amber-900 h-12 rounded-full text-sm px-6 font-bold" : ""}
+            ${currentPath === item.href ? `${!item.isSpecialButton ? "bg-white/30 text-white" : ""} rounded-full` : `${!item.isSpecialButton ? "text-white/80 hover:text-white" : "text-black"}`}
+              ${item.isSpecialButton ? "flex items-center uppercase bg-primary text-black h-12 rounded-full text-sm px-6 font-bold" : ""}
             `}
           >
             {currentPath === item.href && (
@@ -63,7 +63,10 @@ export const Menu = ({ menuItems, currentPath }: MenuProps) => {
                 animate={{ opacity: 1 }}
               />
             )}
-            <Link href={item.href} className="flex items-center justify-center">
+            <Link
+              href={item.href}
+              className="flex items-center justify-center scale-100 will-change-transform"
+            >
               {item.icon ? (
                 <FontAwesomeIcon icon={item.icon} size="lg" />
               ) : (
