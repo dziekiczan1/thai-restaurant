@@ -1,18 +1,21 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { faLeaf } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { menuData } from "@/config/menu-data";
+import { PageTitle, SectionTitle } from "@/components/page-title";
 
 export default function MainMenu() {
-  const sectionRefs = useRef<Record<string, React.RefObject<HTMLDivElement>>>(
+  const sectionRefs = useRef<
+    Record<string, React.RefObject<HTMLDivElement | null>>
+  >(
     menuData.reduce(
       (acc, section) => {
         acc[section.id] = React.createRef<HTMLDivElement>();
         return acc;
       },
-      {} as Record<string, React.RefObject<HTMLDivElement>>,
+      {} as Record<string, React.RefObject<HTMLDivElement | null>>,
     ),
   );
 
@@ -26,6 +29,7 @@ export default function MainMenu() {
 
   return (
     <div className="w-full text-white min-h-screen overflow-y-auto">
+      <PageTitle text="Main Menu" centered className={`pt-12`} />
       <nav className="sticky top-0 bg-black z-10 shadow-md">
         <ul className="flex justify-center items-center gap-6 md:gap-8 py-6 px-4 overflow-x-auto">
           {menuData.map((section) => (
@@ -41,16 +45,14 @@ export default function MainMenu() {
         </ul>
       </nav>
 
-      <div className="max-w-3xl mx-auto px-4">
+      <div className="max-w-3xl mx-auto">
         {menuData.map((section) => (
           <div
             key={section.id}
             ref={sectionRefs.current[section.id]}
             className="my-12 scroll-mt-20"
           >
-            <h2 className="font-bitter text-4xl md:text-5xl text-primary pl-6 mb-6">
-              {section.title}
-            </h2>
+            <SectionTitle text={section.title} />
             <ul className="flex flex-col gap-4 w-full">
               {section.items.map((item) => (
                 <li

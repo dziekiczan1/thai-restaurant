@@ -1,11 +1,12 @@
 "use client";
 
-import { Header } from "@/components/header";
-import { Menu } from "@/components/menu";
-import { SectionInfo } from "@/components/section-info";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+
+import { Header } from "@/components/header";
+import { Menu } from "@/components/menu";
+import { SectionInfo } from "@/components/section-info";
 import { siteConfig, getMenuItems } from "@/config/site-config";
 
 export default function MainLayout({
@@ -32,7 +33,8 @@ export default function MainLayout({
       <AnimatePresence mode="wait">
         <motion.div
           key={`background-${pathname}`}
-          className="absolute inset-0 flex flex-col min-h-screen bg-cover bg-center bg-no-repeat overflow-hidden"
+          className={`absolute inset-0 flex flex-col min-h-screen bg-cover bg-center bg-no-repeat overflow-hidden 
+          ${!isHomepage ? "after:content-[''] after:right-0 after:top-0 after:bottom-0 after:w-16 after:absolute after:bg-gradient-to-l after:from-black after:to-transparent" : ""}`}
           style={{ backgroundImage: `url(${bgImage})` }}
           initial={{
             width: "100vw",
