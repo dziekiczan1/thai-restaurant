@@ -177,7 +177,7 @@ export const WorkshopCard: React.FC<WorkshopCardProps> = ({
         <div className="flex justify-between items-center">
           <span className="text-xl font-medium">${workshop.price}</span>
           <button
-            className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+            className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors cursor-pointer"
             onClick={() => onToggle(workshop.id)}
           >
             {isExpanded ? (
