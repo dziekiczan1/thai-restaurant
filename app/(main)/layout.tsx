@@ -16,6 +16,7 @@ export default function MainLayout({
 }) {
   const pathname = usePathname();
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const isHomepage = pathname === "/";
   const currentConfig = siteConfig[pathname] || siteConfig["/"];
@@ -25,16 +26,28 @@ export default function MainLayout({
   useEffect(() => {
     setIsTransitioning(true);
     const timer = setTimeout(() => setIsTransitioning(false), 700);
-    return () => clearTimeout(timer);
+
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    checkMobile();
+
+    window.addEventListener("resize", checkMobile);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", checkMobile);
+    };
   }, [pathname]);
 
   return (
-    <div className="flex w-screen h-screen overflow-hidden">
+    <div className="flex flex-col md:flex-row w-screen h-screen lg:overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
           key={`background-${pathname}`}
-          className={`absolute inset-0 flex flex-col min-h-screen bg-cover bg-center bg-no-repeat overflow-hidden 
-          ${!isHomepage ? "after:content-[''] after:right-0 after:top-0 after:bottom-0 after:w-16 after:absolute after:bg-gradient-to-l after:from-black after:to-transparent" : ""}`}
+          className={`absolute inset-0 flex flex-col lg:min-h-screen bg-cover bg-center bg-no-repeat overflow-hidden px-4 lg:px-0
+          ${!isHomepage ? "after:content-[''] after:right-0 lg:after:top-0 after:bottom-0 after:h-8 lg:after:h-auto after:w-full lg:after:w-16 after:absolute after:bg-gradient-to-t lg:after:bg-gradient-to-l after:from-black after:to-transparent" : ""}`}
           style={{ backgroundImage: `url(${bgImage})` }}
           initial={{
             width: "100vw",
@@ -42,7 +55,8 @@ export default function MainLayout({
             scale: 1.1,
           }}
           animate={{
-            width: isHomepage ? "100vw" : "50vw",
+            width: isHomepage || isMobile ? "100vw" : "50vw",
+            height: isMobile && !isHomepage ? "50vh" : "100vh",
             opacity: 1,
             scale: 1,
           }}
@@ -78,18 +92,28 @@ export default function MainLayout({
       {!isHomepage && !isTransitioning && (
         <motion.main
           key={`${pathname}-main`}
-          className="absolute right-0 top-0 flex w-1/2 h-full z-10 bg-black text-white"
+          className={`
+            absolute z-10 bg-black text-white flex
+            ${isMobile ? "bottom-0 left-0 w-full h-1/2" : "right-0 top-0 w-1/2 h-full"}
+          `}
           initial={{
-            x: "100%",
+            y: isMobile ? "100%" : 0,
+            x: isMobile ? 0 : "100%",
             opacity: 0,
             scale: 0.95,
           }}
           animate={{
-            x: "0%",
+            y: 0,
+            x: 0,
             opacity: 1,
             scale: 1,
             transition: {
-              x: { duration: 0.5, ease: "easeInOut" },
+              y: isMobile
+                ? { duration: 0.5, ease: "easeInOut" }
+                : { duration: 0 },
+              x: !isMobile
+                ? { duration: 0.5, ease: "easeInOut" }
+                : { duration: 0 },
               opacity: { duration: 0.6 },
               scale: {
                 duration: 0.6,
@@ -100,7 +124,8 @@ export default function MainLayout({
             },
           }}
           exit={{
-            x: "100%",
+            y: isMobile ? "100%" : 0,
+            x: isMobile ? 0 : "100%",
             opacity: 0,
             scale: 0.95,
             transition: {
@@ -111,7 +136,7 @@ export default function MainLayout({
         >
           <motion.div
             key={`content-${pathname}`}
-            className="flex flex-1 overflow-auto font-chillax"
+            className="flex flex-1 font-chillax"
             initial={{
               opacity: 0,
               y: 20,

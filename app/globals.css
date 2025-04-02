@@ -9,7 +9,7 @@
 
 html,
 body {
-  @apply bg-black overflow-hidden;
+  @apply bg-black overflow-y-auto lg:overflow-hidden;
 }
 
 select options {
