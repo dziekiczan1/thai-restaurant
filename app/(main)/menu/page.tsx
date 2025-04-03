@@ -28,7 +28,7 @@ export default function MainMenu() {
   };
 
   return (
-    <div className="w-full text-white min-h-screen overflow-y-auto">
+    <div className="w-full text-white min-h-screen lg:overflow-y-auto">
       <PageTitle text="Main Menu" centered className={`pt-12`} />
       <nav className="sticky top-0 bg-black z-10 shadow-md">
         <ul className="flex justify-center items-center gap-6 md:gap-8 py-6 px-4 overflow-x-auto">

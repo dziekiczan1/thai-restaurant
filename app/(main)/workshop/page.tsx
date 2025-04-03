@@ -120,7 +120,7 @@ export default function Workshop() {
   };
 
   return (
-    <div className="w-full text-white min-h-screen overflow-y-auto">
+    <div className="w-full text-white min-h-screen lg:overflow-y-auto">
       <div className="max-w-3xl mx-auto py-12">
         <PageTitle text="Culinary Workshops" centered />
 
