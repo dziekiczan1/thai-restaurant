@@ -84,6 +84,7 @@ export default function MainLayout({
             subtitle={currentConfig.subtitle}
             title={currentConfig.title}
             description={currentConfig.description}
+            isHomepage={isHomepage}
           />
           <Menu menuItems={menuItems} currentPath={pathname} />
         </motion.div>
