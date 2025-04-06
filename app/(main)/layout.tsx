@@ -137,7 +137,7 @@ export default function MainLayout({
         >
           <motion.div
             key={`content-${pathname}`}
-            className="flex flex-1 font-chillax"
+            className="flex flex-1 font-chillax px-4 lg:px-0"
             initial={{
               opacity: 0,
               y: 20,

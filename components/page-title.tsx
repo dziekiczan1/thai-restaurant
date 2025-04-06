@@ -11,7 +11,7 @@ export const PageTitle: React.FC<PageTitleProps> = ({
 }) => {
   return (
     <h2
-      className={`font-bitter text-5xl md:text-6xl text-primary ${centered ? "text-center" : ""} mb-12 ${className}`}
+      className={`font-bitter text-5xl md:text-6xl text-primary ${centered ? "text-center" : ""} mb-4 lg:mb-12 ${className}`}
     >
       {text}
     </h2>
