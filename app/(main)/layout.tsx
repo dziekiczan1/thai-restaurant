@@ -162,7 +162,9 @@ export default function MainLayout({
               },
             }}
           >
-            {children}
+            <div className="w-full text-white min-h-screen lg:overflow-y-auto">
+              {children}
+            </div>
           </motion.div>
         </motion.main>
       )}

@@ -28,8 +28,8 @@ export default function MainMenu() {
   };
 
   return (
-    <div className="w-full text-white min-h-screen lg:overflow-y-auto">
-      <PageTitle text="Main Menu" centered className={`pt-12`} />
+    <>
+      <PageTitle text="Main Menu" className={`pt-12`} />
       <nav className="sticky top-0 bg-black z-10 shadow-md">
         <ul className="flex justify-center flex-wrap lg:flex-nowrap items-center gap-x-6 gap-y-2 lg:gap-8 py-2 lg:py-6 px-4 overflow-x-auto">
           {menuData.map((section) => (
@@ -91,6 +91,6 @@ export default function MainMenu() {
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 }

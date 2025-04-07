@@ -32,38 +32,35 @@ export default function About() {
   ];
 
   return (
-    <div className="w-full text-white min-h-screen lg:overflow-y-auto">
-      <div className="max-w-3xl mx-auto py-12">
-        <PageTitle text="Our Story" centered />
+    <div className="max-w-3xl mx-auto py-12">
+      <PageTitle text="Our Story" />
 
-        <div className="rounded-lg p-8 mb-12 bg-white/10">
-          <p className="mb-6 text-lg">
-            Founded in 2018, our restaurant brings together culinary innovation
-            and time-honored traditions. We take pride in crafting extraordinary
-            dining experiences that celebrate seasonal ingredients and global
-            flavors.
-          </p>
+      <div className="rounded-lg p-8 mb-12 bg-white/10">
+        <p className="mb-6 text-lg">
+          Founded in 2018, our restaurant brings together culinary innovation
+          and time-honored traditions. We take pride in crafting extraordinary
+          dining experiences that celebrate seasonal ingredients and global
+          flavors.
+        </p>
 
-          <FeatureGrid />
+        <FeatureGrid />
 
-          <p className="text-lg">
-            Whether you're joining us for an intimate dinner, celebrating a
-            special occasion, or simply enjoying a casual meal with friends, we
-            look forward to welcoming you and creating memorable moments
-            together.
-          </p>
-        </div>
-
-        <SectionTitle text="Gallery" />
-
-        <ImageGallery images={restaurantImages} className="mb-12" />
-
-        <CallToAction
-          title="Join Us For Dinner"
-          description="Experience our passion for exceptional cuisine and warm hospitality."
-          buttonText="Make a Reservation"
-        />
+        <p className="text-lg">
+          Whether you're joining us for an intimate dinner, celebrating a
+          special occasion, or simply enjoying a casual meal with friends, we
+          look forward to welcoming you and creating memorable moments together.
+        </p>
       </div>
+
+      <SectionTitle text="Gallery" />
+
+      <ImageGallery images={restaurantImages} className="mb-12" />
+
+      <CallToAction
+        title="Join Us For Dinner"
+        description="Experience our passion for exceptional cuisine and warm hospitality."
+        buttonText="Make a Reservation"
+      />
     </div>
   );
 }
