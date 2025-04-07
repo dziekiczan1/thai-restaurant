@@ -42,11 +42,13 @@ export default function MainLayout({
   }, [pathname]);
 
   return (
-    <div className="flex flex-col md:flex-row w-screen h-screen lg:overflow-hidden">
+    <div
+      className={`flex flex-col md:flex-row w-screen h-screen lg:overflow-hidden ${isHomepage ? "overflow-hidden" : ""}`}
+    >
       <AnimatePresence mode="wait">
         <motion.div
           key={`background-${pathname}`}
-          className={`absolute inset-0 flex flex-col lg:min-h-screen bg-cover bg-center bg-no-repeat overflow-hidden px-4 lg:px-0
+          className={`relative lg:absolute inset-0 flex flex-col lg:min-h-screen bg-cover bg-center bg-no-repeat overflow-hidden px-4 lg:px-0
           ${!isHomepage ? "after:content-[''] after:right-0 lg:after:top-0 after:bottom-0 after:h-8 lg:after:h-auto after:w-full lg:after:w-16 after:absolute after:bg-gradient-to-t lg:after:bg-gradient-to-l after:from-black after:to-transparent" : ""}`}
           style={{ backgroundImage: `url(${bgImage})` }}
           initial={{
