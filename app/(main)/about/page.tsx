@@ -19,13 +19,13 @@ export default function About() {
     },
     {
       id: 3,
-      src: "/about.webp",
+      src: "/booking.webp",
       alt: "Private dining area",
       caption: "Private dining for special occasions",
     },
     {
       id: 4,
-      src: "/booking.webp",
+      src: "/spirits.webp",
       alt: "Our well-stocked bar",
       caption: "Our carefully curated selection of spirits",
     },
