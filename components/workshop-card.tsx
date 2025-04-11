@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import {
   faUtensils,
   faCalendarAlt,
@@ -7,6 +8,7 @@ import {
   faChevronUp,
   faMoneyBill,
   faClock,
+  IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -25,7 +27,7 @@ interface Workshop {
 }
 
 interface InfoBadgeProps {
-  icon: any;
+  icon: IconDefinition;
   text: string;
 }
 
@@ -57,7 +59,7 @@ export const WorkshopBasicInfo: React.FC<WorkshopBasicInfoProps> = ({
 );
 
 interface WorkshopDetailItem {
-  icon: any;
+  icon: IconDefinition;
   label: string;
   value: React.ReactNode;
   isMultiLine?: boolean;
@@ -131,7 +133,7 @@ export const WorkshopDetails: React.FC<WorkshopDetailsProps> = ({
 
     <div>
       <h4 className="font-chillax text-lg text-primary mb-2">
-        What's Included
+        What&rsquo;s Included
       </h4>
       <ul className="list-disc pl-5 flex flex-col gap-1">
         {workshop.includes.map((item, index) => (
@@ -159,7 +161,7 @@ export const WorkshopCard: React.FC<WorkshopCardProps> = ({
   >
     <div className="flex flex-col md:flex-row">
       <div className="md:w-1/3">
-        <img
+        <Image
           src={workshop.image}
           alt={workshop.title}
           className="w-full h-full object-cover aspect-square md:aspect-auto"

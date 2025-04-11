@@ -1,5 +1,7 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
+
 import { PageTitle, SectionTitle } from "@/components/page-title";
 import { CallToAction } from "@/components/cta";
 import { FAQCard } from "@/components/faq-item";
@@ -27,7 +29,7 @@ export default function Workshop() {
       />
 
       <div className="relative rounded-lg overflow-hidden mb-12">
-        <img
+        <Image
           src="/main.webp"
           alt="Featured workshop experience"
           className="w-full h-[300px] object-cover brightness-75"

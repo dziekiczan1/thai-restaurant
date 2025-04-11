@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
-import { FormSection } from "@/components/reservation/form-section";
 
 export const ReservationInfo: React.FC = () => {
   return (

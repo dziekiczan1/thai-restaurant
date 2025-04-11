@@ -2,6 +2,7 @@
 import React, { useRef } from "react";
 import { faLeaf } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 
 import { menuData } from "@/config/menu-data";
 import { PageTitle, SectionTitle } from "@/components/page-title";
@@ -64,7 +65,7 @@ export default function MainMenu() {
                       Our Bestseller
                     </span>
                   )}
-                  <img
+                  <Image
                     src={item.image}
                     alt={item.name}
                     className="w-[90px] h-[70px] rounded-xl object-cover"

@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 
 export interface GalleryImage {
   id: number;
@@ -30,7 +31,7 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
   return (
     <div className={`relative rounded-lg overflow-hidden ${className}`}>
       <div className="aspect-w-16 aspect-h-9 relative">
-        <img
+        <Image
           src={images[activeImage].src}
           alt={images[activeImage].alt}
           className="w-full h-[400px] object-cover"

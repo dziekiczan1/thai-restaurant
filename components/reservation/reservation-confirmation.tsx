@@ -20,9 +20,9 @@ export const ReservationConfirmation: React.FC<
         Thank You for Your Reservation!
       </h2>
       <p className="text-lg mb-6">
-        We've received your reservation request for {formData.guests} guests on{" "}
-        {formData.date} at {formData.time}. A confirmation will be sent to{" "}
-        {formData.email} shortly.
+        We&rsquo;ve received your reservation request for {formData.guests}{" "}
+        guests on {formData.date} at {formData.time}. A confirmation will be
+        sent to {formData.email} shortly.
       </p>
       <div className="bg-white/10 p-4 rounded-lg mb-6 inline-block">
         <h3 className="font-chillax text-base mb-2 underline underline-offset-4">
