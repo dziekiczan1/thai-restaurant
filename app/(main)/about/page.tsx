@@ -46,7 +46,7 @@ export default function About() {
         <FeatureGrid />
 
         <p className="text-lg">
-          Whether you're joining us for an intimate dinner, celebrating a
+          Whether you&rsquo;re joining us for an intimate dinner, celebrating a
           special occasion, or simply enjoying a casual meal with friends, we
           look forward to welcoming you and creating memorable moments together.
         </p>
